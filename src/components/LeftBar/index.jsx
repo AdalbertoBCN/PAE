@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
 import './style.css';
-import {BsFillCalendar2WeekFill,BsFillBookFill,BsHouseFill,BsNewspaper,BsFillFileTextFill,BsPencilFill} from "react-icons/bs";
+import {BsFillCalendar2WeekFill,BsFillBookFill,BsHouseFill,BsNewspaper,BsFillFileTextFill,BsPencilFill,BsDownload} from "react-icons/bs";
 import {RiLogoutBoxFill} from "react-icons/ri";
 import { useState } from 'react';
+import { saveAs } from 'file-saver';
 
 function clickLink(event){
     const newUrl = event.target.href;
@@ -13,6 +14,13 @@ function clickLink(event){
 function Logout(){
     localStorage.loginPae = 'false';
     window.location.reload();
+}
+
+function downloadLog(){
+    const jsonData = JSON.stringify(JSON.parse(localStorage.infologPae), null, 2);
+    const blob = new Blob([jsonData], { type: 'application/json' });
+    saveAs(blob, 'data.json');
+
 }
 
 
@@ -31,6 +39,7 @@ function LeftBar() {
                     <a onClick={clickLink} draggable="true"  href="/eventos"><BsFillCalendar2WeekFill/>Próximos Eventos</a>
                     <a onClick={clickLink} draggable="true"  href="/avaliacoes"><BsFillFileTextFill/>Avaliações</a>
                     <a onClick={clickLink} draggable="true"  href="/noticias"><BsNewspaper/>Notícias</a>
+                    <a onClick={downloadLog}><BsDownload/></a>
 
                     <div className='Logout'><RiLogoutBoxFill onClick={Logout}/></div>
                 </div>

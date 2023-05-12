@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import BD from './BD.js'
 import './style.css'
+import log from './log.json';
 
 function Login() {
     const [email, setEmail] = useState('');
@@ -13,13 +14,27 @@ function Login() {
     function writePass(event) {
         setPass(event.target.value);
     }
-
+    
     function Validation() {
         BD.map((item) => {
-            if (item.email == email && item.senha == password)
+            if (item.email == email && item.senha == password){
                 localStorage.loginPae = 'true';
-                window.location.reload();
+                let infolog = localStorage.infologPae? JSON.parse(localStorage.infologPae) : null;
+    
+                infolog && !infolog.find(l => l.email == email &&
+                    l.date.getFullYear() == new Date().getFullYear() &&
+                    l.date.getMonth() == new Date().getMonth() &&
+                    l.date.getDate() == new Date().getDate() &&
+                    l.date.getHours() == new Date().getHours() &&
+                    l.date.getMinutes() == new Date().getMinutes())
+                    ? infolog.push({email, date: new Date()})
+                    : infolog = [{email, date: new Date()}];
+
+                
+                localStorage.infologPae = JSON.stringify(infolog);
+            }
         })
+        window.location.reload();  
     }
 
     function handleKeyDown(event) {
