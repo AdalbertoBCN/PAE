@@ -8,6 +8,7 @@
     gap: 300px;
     z-index: 1;
     user-select: none;
+    padding: 10px;
 }
 
 .logo{

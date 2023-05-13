@@ -35,7 +35,7 @@ function LeftBar() {
                 </div>
                 <div className="navigation">
                     <div onClick={clickLink}><a draggable="true"  href="/painel"><BsHouseFill/>Painel</a> <i><BsPencilFill/></i></div>
-                    <a onClick={clickLink} draggable="true"  href="/diciplinas"><BsFillBookFill/>Diciplinas</a>
+                    <a onClick={clickLink} draggable="true"  href="/notas"><BsFillBookFill/>Notas</a>
                     <a onClick={clickLink} draggable="true"  href="/eventos"><BsFillCalendar2WeekFill/>Próximos Eventos</a>
                     <a onClick={clickLink} draggable="true"  href="/avaliacoes"><BsFillFileTextFill/>Avaliações</a>
                     <a onClick={clickLink} draggable="true"  href="/noticias"><BsNewspaper/>Notícias</a>

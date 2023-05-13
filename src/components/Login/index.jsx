@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useEffect } from "react";
 import BD from './BD.js'
 import './style.css'
-import log from './log.json';
 
 function Login() {
     const [email, setEmail] = useState('');

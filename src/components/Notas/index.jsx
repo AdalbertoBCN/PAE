@@ -1,10 +1,11 @@
+import GuideNotas from '../GuideNotas'
 import './style.css'
 function Notas() {
 
     return (
-      <>
-      <h1>Notaxxxxxxxxxs</h1>
-      </>
+      <div className='Notas'>
+        <GuideNotas/>
+      </div>
     )
   }
   
