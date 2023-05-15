@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
-import Column from '../Column'
-import Guide from '../Guide'
-import './style.css'
+import Column from '../../components/Column'
+import styles from './Painel.module.css';
 
 function Painel() {
   const [column01, setColumn01] = useState(['Notas']);
@@ -48,11 +47,11 @@ function Painel() {
 
     columns.forEach((item) => {
       item.addEventListener("dragover", (e) => {
-        item.classList.add("columnover");
+        item.classList.add(styles.columnover);
       });
 
       item.addEventListener("dragleave", (e) => {
-        item.classList.remove("columnover");
+        item.classList.remove(styles.columnover);
       });
 
     });
@@ -85,7 +84,7 @@ function Painel() {
 
   return (
     <>
-      <div className='painel'>
+      <div className={styles.Painel}>
         <Column elements={column01} key='Column01' id={'C01'} />
         <Column elements={column02} key='Column02' id={'C02'} />
         <Column elements={column03} key='Column03' id={'C03'} />

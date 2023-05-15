@@ -1,0 +1,11 @@
+.Painel{
+    width: calc(100vw - 215px);
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    gap: 10px;
+    padding: 10px 15px;
+}
+.dragging {
+    opacity: 0.4;
+  }
+  

@@ -1,5 +1,6 @@
-import GuideNotas from '../GuideNotas'
-import './style.css'
+import GuideNotas from '../../components/GuideNotas'
+import style from './Notas.module.css';
+
 function Notas() {
 
     return (

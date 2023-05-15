@@ -1,51 +1,67 @@
-import { useEffect } from 'react';
-import './style.css';
-import {BsFillCalendar2WeekFill,BsFillBookFill,BsHouseFill,BsNewspaper,BsFillFileTextFill,BsPencilFill,BsDownload} from "react-icons/bs";
-import {RiLogoutBoxFill} from "react-icons/ri";
-import { useState } from 'react';
-import { saveAs } from 'file-saver';
-
-function clickLink(event){
-    const newUrl = event.target.href;
-    history.pushState(null, null, newUrl);
-    localStorage.setItem('CurrentHrefPae',String( event.target.href).replace(/(.*)(\/\w+$)/,'$2'));
-}
-
-function Logout(){
-    localStorage.loginPae = 'false';
-    window.location.reload();
-}
-
-function downloadLog(){
-    const jsonData = JSON.stringify(JSON.parse(localStorage.infologPae), null, 2);
-    const blob = new Blob([jsonData], { type: 'application/json' });
-    saveAs(blob, 'data.json');
-
-}
-
+import React from 'react';
+import styles from './LeftBar.module.css';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import useAuth from '../../utils/hooks/useAuth';
 
 function LeftBar() {
-    return (
-        <>
-            <div className="container">
-                <div className="logo">
-                    <h1>PAE</h1>
-                    <p>Educação e Tecnologia</p>
-                    <p className='citacion'> "Se a educação sozinha não transforma a sociedade, sem ela, tampouco a sociedade muda." - Paulo Freire</p>
-                </div>
-                <div className="navigation">
-                    <div onClick={clickLink}><a draggable="true"  href="/painel"><BsHouseFill/>Painel</a> <i><BsPencilFill/></i></div>
-                    <a onClick={clickLink} draggable="true"  href="/notas"><BsFillBookFill/>Notas</a>
-                    <a onClick={clickLink} draggable="true"  href="/eventos"><BsFillCalendar2WeekFill/>Próximos Eventos</a>
-                    <a onClick={clickLink} draggable="true"  href="/avaliacoes"><BsFillFileTextFill/>Avaliações</a>
-                    <a onClick={clickLink} draggable="true"  href="/noticias"><BsNewspaper/>Notícias</a>
-                    <a onClick={downloadLog}><BsDownload/></a>
+  const { signout } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
 
-                    <div className='Logout'><RiLogoutBoxFill onClick={Logout}/></div>
-                </div>
-            </div>
-        </>
-    )
+  const isActive = (pathname) => {
+    return location.pathname === pathname ? styles.selected : '';
+  };
+
+  return (
+    <>
+      <nav className={styles.LeftBar}>
+        <div className={styles.logo}>
+          <h1>PAE</h1>
+          <h2>Educação e Tecnologia</h2>
+          <p>
+            "Se a educação sozinha não transforma a sociedade, sem ela, tampouco a sociedade muda." - Paulo Freire
+          </p>
+        </div>
+
+        <div className={styles.navlinkgroup}>
+          <Link to="/painel" className={`${styles.navlink} ${isActive('/painel')}`}>
+            <i className="bi bi-grid-1x2-fill"></i>
+            <span>Painel</span>
+          </Link>
+
+          <Link to="/aluno" className={`${styles.navlink} ${isActive('/aluno')}`}>
+            <i className="bi bi-person-fill" style={{ transform: 'scale(1.3)' }}></i>
+            <span>Aluno</span>
+          </Link>
+
+          <Link to="/diciplinas" className={`${styles.navlink} ${isActive('/diciplinas')}`}>
+            <i className="bi bi-book-fill"></i>
+            <span>Diciplinas</span>
+          </Link>
+
+          <Link to="/arquivos" className={`${styles.navlink} ${isActive('/arquivos')}`}>
+            <i className="bi bi-folder-fill"></i>
+            <span>Arquivos</span>
+          </Link>
+
+          <Link to="/calendario" className={`${styles.navlink} ${isActive('/calendario')}`}>
+            <i className="bi bi-calendar-week-fill"></i>
+            <span>Calendário</span>
+          </Link>
+
+          <Link to="/iftalks" className={`${styles.navlink} ${isActive('/iftalks')}`}>
+            <i className="bi bi-chat-dots-fill" style={{ transform: 'scale(1.08)' }}></i>
+            <span>IFTalks</span>
+          </Link>
+        </div>
+
+        <div className={styles.logout} onClick={() => [signout(), navigate('/')]}>
+          <i className="bi bi-box-arrow-in-right"></i>
+          <span>Sair</span>
+        </div>
+      </nav>
+    </>
+  );
 }
 
-export default LeftBar
+export default LeftBar;

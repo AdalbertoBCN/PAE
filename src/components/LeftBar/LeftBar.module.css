@@ -1,0 +1,110 @@
+.LeftBar {
+  width: 200px;
+  height: 100vh;
+  background-color: var(--color-background);
+  display: grid;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  padding: 10px;
+}
+
+.logo {
+  width: 100%;
+  height: min-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.logo h1 {
+  padding: 10px;
+  border-radius: 12px;
+  color: var(--color-overlay);
+  font-size: 42px;
+  background-color: var(--color-primary);
+  cursor: pointer;
+  user-select: none;
+  margin-bottom: 10px;
+  width: max-content;
+  height: min-content;
+}
+
+.logo h2 {
+  color: var(--color-text);
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.logo p {
+  color: var(--color-primary);
+  font-size: 11px;
+  max-width: calc(100% - 15px);
+  text-align: justify;
+}
+
+.navlinkgroup {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: min-content;
+}
+
+.navlink {
+  background-color: var(--color-overlay);
+  padding: 15px;
+  padding-left: 20px;
+  border-radius: 12px;
+  display: flex;
+  gap: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  color: var(--color-text);
+  border: 2px solid transparent;
+}
+
+.navlink i,
+.navlink span {
+  transition: all 0.2s ease-out;
+}
+
+.navlink:not(.selected):hover span,
+.navlink:not(.selected):hover i {
+  translate: -3px;
+  color: var(--color-primary)
+}
+
+.selected {
+  border: 2px solid var(--color-primary);
+  transform: translateX(-3px);
+  color: var(--color-primary)
+}
+
+.selected {
+  border: 2px solid var(--color-primary);
+  transform: translateX(-3px);
+  color: var(--color-primary)
+}
+
+.logout {
+  width: max-content;
+  height: min-content;
+  align-self: end;
+  justify-self: center;
+  padding: 10px 20px;
+  display: flex;
+  gap: 5px;
+  color: var(--color-text);
+  border-radius: 12px;
+  font-weight: bold;
+  background-color: var(--color-overlay);
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.3s ease-out;
+}
+
+.logout:hover {
+  color: var(--color-primary);
+  filter: brightness(0.9);
+}

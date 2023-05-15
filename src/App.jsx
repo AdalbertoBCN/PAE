@@ -1,34 +1,20 @@
-import { useState, useEffect } from 'react';
 import LeftBar from './components/LeftBar';
-import './App.css';
-import Content from './components/Content';
-import Login from './components/Login';
+import { Outlet,useLocation } from 'react-router-dom';
+import useAuth from './utils/hooks/useAuth';
 
 function App() {
-  useEffect(() => {
-    localStorage.CurrentHrefPae = '/painel'
-  })
-  function RenderComp(){
-    if(localStorage.loginPae && localStorage.loginPae == 'true'){
-        return (
-          <>
-            <LeftBar/>
-            <Content/>
-          </>
-        )
-    }
-    else {
-      return <Login/>; // Corrigido para retornar o componente Login
-    }
+  const location = useLocation();
 
-  }
+  const {signed} = useAuth();
 
+  const NoLeftBar = new Set(['/','/registrar']);
 
   return (
     <div className="App">
-      <RenderComp/>
+      {(!NoLeftBar.has(location.pathname) && signed) && <LeftBar />}
+        <Outlet />
     </div>
-  )
+  );
 }
 
 export default App;
