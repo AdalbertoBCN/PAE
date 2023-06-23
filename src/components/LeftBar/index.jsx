@@ -16,7 +16,9 @@ function LeftBar() {
     <>
       <nav className={styles.LeftBar}>
         <div className={styles.logo}>
-          <h1>PAE</h1>
+          <Link to="/painel">
+            <h1>PAE</h1>
+          </Link>
           <h2>Educação e Tecnologia</h2>
           <p>
             "Se a educação sozinha não transforma a sociedade, sem ela, tampouco a sociedade muda." - Paulo Freire
@@ -34,9 +36,9 @@ function LeftBar() {
             <span>Aluno</span>
           </Link>
 
-          <Link to="/diciplinas" className={`${styles.navlink} ${isActive('/diciplinas')}`}>
+          <Link to="/disciplinas" className={`${styles.navlink} ${isActive('/disciplinas')}`}>
             <i className="bi bi-book-fill"></i>
-            <span>Diciplinas</span>
+            <span>Disciplinas</span>
           </Link>
 
           <Link to="/arquivos" className={`${styles.navlink} ${isActive('/arquivos')}`}>

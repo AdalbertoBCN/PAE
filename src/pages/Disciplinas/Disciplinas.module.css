@@ -1,0 +1,81 @@
+.container {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  color: var(--color-text);
+}
+
+h1 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: var(--color-text);
+}
+
+.disciplinasTable {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+.disciplinasTable th,
+.disciplinasTable td {
+  padding: 12px;
+  text-align: center;
+}
+
+.disciplinasTable th {
+  background-color: var(--color-overlay);
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+.disciplinasTable tbody tr:nth-child(2n) {
+  background-color: var(--color-overlay);
+}
+
+.disciplinasTable tbody tr:nth-child(2n+1) {
+  background-color: var(--color-backcground);
+}
+
+.disciplinasTable tbody tr:hover {
+  background-color: var(--color-overlay);
+  filter:brightness(0.9);
+}
+
+.notaColumn {
+  font-weight: bold;
+  color: #00a95c;
+}
+
+.frequenciaColumn {
+  font-weight: bold;
+  color: #0069c0;
+}
+
+.disciplinaRow {
+  cursor: pointer;
+}
+
+.detalhesRow {
+  background-color: var(--color-primary-light);
+}
+
+.detalhesList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.detalhesList li {
+  padding: 8px;
+}
+
+.detalhesList li:nth-child(2n) {
+  background-color: var(--color-primary-light);
+}
+
+.detalhesList li:nth-child(2n+1) {
+  background-color: var(--color-primary);
+}

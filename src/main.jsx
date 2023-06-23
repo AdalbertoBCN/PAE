@@ -7,11 +7,15 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import ErrorPage from './pages/ErrorPage';
 import Calendario from './pages/Calendario';
 import Painel from './pages/Painel';
-import Notas from './pages/Notas';
 import Signin from './pages/Signin';
 import Signup from './pages/Signup';
 import useAuth from './utils/hooks/useAuth';
 import App from './App';
+import Disciplinas from './pages/Disciplinas';
+import Arquivos from './pages/Arquivos';
+import IFtalks from './pages/IFtalks';
+import Aluno from './pages/Aluno';
+import Notas from './pages/Notas';
 
 const Private = ({ Item }) => {
   const { signed } = useAuth();
@@ -65,8 +69,11 @@ const router = createBrowserRouter([
       { path: '/', element: <HasSigned Item={Signin}/> },
       { path: '/registrar', element: <HasSigned Item={Signup}/> },
       { path: '/painel', element: <Private Item={Painel} /> },
-      { path: '/notas', element: <Private Item={Notas} /> },
       { path: '/calendario', element: <Private Item={Calendario} /> },
+      { path: '/disciplinas', element: <Private Item={Disciplinas} /> },
+      { path: '/arquivos', element: <Private Item={Arquivos} /> },
+      { path: '/iftalks', element: <Private Item={IFtalks} /> },
+      { path: '/aluno', element: <Private Item={Aluno} /> },
     ],
   },
 ]);

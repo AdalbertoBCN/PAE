@@ -1,105 +1,129 @@
+.CalendarioContainer {
+  width: 88vw;
+  text-align: center;
+  padding: 10px;
+  background-color: var(--color-background);
+}
 
-.calendar {
-    display: grid;
-    grid-template-rows: auto 1fr;
-    background-color: var(--text);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-    font-family: sans-serif;
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  .year{
-    background-color: var(--orange);
-    width: 70vw;
-    height: 100%;
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-  }
-  
-  .month{
-    height: calc(100% - 30px);
-    margin: 10px;
-    background-color: var(--black);
-    color: var(--text);
-    padding: 10px;
-  }
-  
-  .month-year {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    font-size: 18px;
-    font-weight: bold;
-    color: var(--text);
-    background-color: var(--text);
-  }
-  
-  .days-of-week {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    text-align: center;
-    font-size: 14px;
-    font-weight: bold;
-    color: var(--black);
-    background-color: var(--text);
-    padding: 10px;
-  }
-  
-  .week {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-gap: 2px;
-    padding: 2px;
-  }
-  
-  .day {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 30px;
-    font-size: 14px;
-    color: var(--orange);
-    cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
-    padding: 5px;
-    box-sizing: border-box;
-  }
-  
-  .day:hover {
-    background-color: var(--text);
-  }
-  
-  .active {
-    cursor: pointer;
-  }
-  
-  .inactive {
-    color: #ccc;
-  }
-  
-  .selected {
-    background-color: var(--text);
-    color: var(--black);
-  }
-  
+.CalendarioContainer p,
+.CalendarioContainer h2 {
+  color: var(--color-text);
+}
 
-  @media screen and (max-width: 1500px) {
-    .year{
-        width: 100%;
-        scale: 0.8;
-        transform: translate(-100px,-100px);
-    }
-  }
+.Calendario {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  margin: 20px 0;
+  height: 80vh;
+  padding: 10px;
+  background-color: var(--color-overlay);
+}
 
-  @media screen and (max-width: 1500px) {
-    .year{
-        grid-template-columns: repeat(3,1fr);
-        transform: translate(-120px,-200px);
-        scale: 0.75;
-    }
-  }
+.CalendarioDay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(max-content/7);
+  height: 100%;
+  border: 1px solid #ccc;
+  color: var(--color-text);
+  font-size: 24px;
+  cursor: pointer;
+  padding: 5px;
+  list-style: none;
+  position: relative;
+}
+
+.CalendarioDay:hover {
+  background-color: var(--color-background);
+}
+
+.CalendarioDay span {
+  position: absolute;
+  top: 2px;
+  left: 8px;
+}
+
+.CalendarioDay ul {
+  position: absolute;
+  font-size: 14px;
+  top: 3px;
+  right: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.CalendarioDay li {
+  list-style: none;
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: row;
+}
+
+.CalendarioDay strong {
+  width: 100px;
+  overflow: hidden;
+  text-align: right;
+  text-overflow: ellipsis;
+}
+
+.deleteButton {
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+  background-color: var(--color-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deleteButton:hover {
+  background-color: var(--color-primary);
+}
+
+.inputContainer {
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.inputContainer input {
+  width: 100px;
+  flex-grow: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--color-overlay);
+  filter: brightness(0.8);
+  color: var(--color-text);
+}
+
+.inputContainer button {
+  font-size: 12px;
+  margin-left: 10px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--color-primary);
+  color: #fff;
+  cursor: pointer;
+}
+
+.inputContainer button:hover {
+  background-color: var(--color-primary-light);
+}
+
+.selected {
+  background-color: var(--color-background);
+}
+
+.empty {
+  visibility: hidden;
+}
+
+p {
+  margin-top: 10px;
+  color: var(--color-text);
+}

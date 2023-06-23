@@ -1,0 +1,100 @@
+/* Arquivos.module.css */
+
+.arquivosContainer {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+  }
+  
+  .espacoUtilizado {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .progressBar {
+    flex-grow: 1;
+    height: 20px;
+    background-color: #e2e2e2;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .progressBarText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-weight: bold;
+  }
+  
+  .espacoInfo {
+    margin-left: 10px;
+    font-size: 14px;
+    color: white;
+  }
+  
+  .arquivosList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .arquivoItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+    color: white;
+  }
+
+  .arquivoItem span{
+    width: 150px;
+  }
+  
+  .tamanho {
+    font-weight: bold;
+  }
+  
+  button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .baixarButton {
+    background-color: #5cb85c;
+    color: #fff;
+  }
+  
+  .excluirButton {
+    background-color: #d9534f;
+    color: #fff;
+    margin-left: 10px;
+  }
+  
+  .alert {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+  }
+  
+  .alert-success {
+    background-color: #dff0d8;
+    color: #3c763d;
+  }
+  
+  .alert-error {
+    background-color: #f2dede;
+    color: #a94442;
+  }

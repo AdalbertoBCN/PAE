@@ -1,0 +1,39 @@
+[
+    {
+      "id": 1,
+      "name": "Elon Musk",
+      "image": "./user.svg",
+      "lastMessage": "Última mensagem de Elon Musk"
+    },
+    {
+      "id": 2,
+      "name": "Oprah Winfrey",
+      "image": "./user.svg",
+      "lastMessage": "Última mensagem de Oprah Winfrey"
+    },
+    {
+      "id": 3,
+      "name": "Dwayne Johnson",
+      "image": "./user.svg",
+      "lastMessage": "Última mensagem de Dwayne Johnson"
+    },
+    {
+      "id": 4,
+      "name": "Beyoncé",
+      "image": "./user.svg",
+      "lastMessage": "Última mensagem de Beyoncé"
+    },
+    {
+      "id": 5,
+      "name": "Serena Williams",
+      "image": "./user.svg",
+      "lastMessage": "Última mensagem de Serena Williams"
+    },
+    {
+      "id": 6,
+      "name": "Leonardo DiCaprio",
+      "image": "./user.svg",
+      "lastMessage": "Última mensagem de Leonardo DiCaprio"
+    }
+  ]
+  
